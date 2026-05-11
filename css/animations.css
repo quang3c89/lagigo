@@ -1,0 +1,41 @@
+/* === SCROLL REVEAL === */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* === CARD HOVER === */
+.review-card,
+.feature-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-card:hover,
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+
+/* === COUNTER ANIMATION === */
+.stat-num {
+  display: inline-block;
+}
+
+/* === RESPECTS REDUCED MOTION === */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .review-card, .feature-card {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
