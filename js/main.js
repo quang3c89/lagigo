@@ -193,3 +193,20 @@ const fabObserver = new IntersectionObserver(entries => {
 const heroForm = document.querySelector('.booking-form');
 if (heroForm) fabObserver.observe(heroForm);
 
+function handleBooking() {
+  const pickup = document.getElementById('pickup')?.value?.trim();
+  const dropoff = document.getElementById('dropoff')?.value?.trim();
+  const date = document.getElementById('date')?.value || '';
+  const time = document.getElementById('time')?.value || '';
+  const cartype = document.getElementById('cartype')?.value || '';
+
+  if (!pickup || !dropoff) {
+    alert('Vui lòng nhập điểm đón và điểm đến!');
+    return;
+  }
+
+  const phone = '0123456789';
+  const msg = `Tôi muốn đặt xe:\n📍 Đón: ${pickup}\n🏁 Đến: ${dropoff}\n📅 Ngày: ${date} lúc ${time}\n🚗 Loại xe: ${cartype}`;
+  window.open(`https://zalo.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
